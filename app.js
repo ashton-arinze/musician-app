@@ -6,12 +6,12 @@ const Musician = require('./models/musician');
 const musicianRoutes = require('./routes/musician');
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3001;
 
 // include routes
 app.use('/musician', musicianRoutes);
 
-app.use(express.static('public'));
+app.use(express.static('client/build'));
 
 // Index route
 app.get('*', (req, res) => {
