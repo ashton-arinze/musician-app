@@ -1,31 +1,35 @@
 const express = require('express');
-const path = require('path');
-const store = require('./store/datastore');
-const initialStoreData = require('./store/data');
-const Musician = require('./models/musician');
-const musicianRoutes = require('./routes/musician');
+// const path = require('path');
+// const store = require('./store/datastore');
+// const initialStoreData = require('./store/data');
+// const Musician = require('./models/musician');
+// const musicianRoutes = require('./routes/musician');
 
 const app = express();
 const port = process.env.PORT || 3001;
 
-// include routes
-app.use('/musician', musicianRoutes);
+// // include routes
+// app.use('/musician', musicianRoutes);
 
-app.use(express.static('client/build'));
+// app.use(express.static('client/build'));
 
-// Index route
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
-});
+// // Index route
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client/build/index.html'));
+// });
 
-// initialize store
-const musician = new Musician(store);
-musician.initStore(initialStoreData);
-app.locals.musician = musician;
+// // initialize store
+// const musician = new Musician(store);
+// musician.initStore(initialStoreData);
+// app.locals.musician = musician;
 
-// start server
-const server = app.listen(port, () => {
+// // start server
+// // const server = 
+app.listen("/hello", (req, res) => {
+  res.send("HI")
+})
+app.listen(port, () => {
   console.log("Server started on port " + port);
 });
 
-module.exports = server;
+// module.exports = server;
